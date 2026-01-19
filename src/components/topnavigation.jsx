@@ -1,22 +1,18 @@
 
-
-
-function topnavigation(){
-    return(
-
+function TopNavigation() {
+    return (
         <ul className="navigationbar">
-            <li className="Nav_T"><b><i>LUO Junhua</i></b></li>
-            <li className="Nav_B"><a href="#contactme">Contact me</a></li>
-            <li className="Nav_B"><a href="#ProjectExp">Project Experience</a></li>
-            <li className="Nav_B"><a href="#Resume">Resume</a></li>
-            <li className="Nav_B"><a href="#aboutme">About me</a></li>
-
-
-
+            <li className="Nav_T">LUO</li>
+            <li className="Nav_B"><a href="#Contact">Contact</a></li>
+            <li className="Nav_B"><a href="#Competitions">Competitions</a></li>
+            <li className="Nav_B"><a href="#CTF">CTF</a></li>
+            <li className="Nav_B"><a href="#ProjectExp">Projects</a></li>
+            <li className="Nav_B"><a href="#Skills">Skills</a></li>
+            <li className="Nav_B"><a href="#Experience">Experience</a></li>
+            <li className="Nav_B"><a href="#Education">Education</a></li>
+            <li className="Nav_B"><a href="#AboutMe">About</a></li>
         </ul>
-
     );
-
-
 }
-export default topnavigation
+
+export default TopNavigation

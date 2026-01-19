@@ -1,40 +1,71 @@
 import { Parallax } from 'react-parallax';
 
-
-const sessionTwo = () => (
-    <Parallax className='Section5' strength={800}>
-       <div className='S5_content' id='contactme'>
-
-       <div>
-            <h1>Contact me</h1>
-            <form
-  className='forminput'
-  action="mailto:luojunhua07@gmail.com"
-  method="POST"
-  encType="text/plain"
->
-    <label htmlFor="C_name">Name</label><br/>
-    <input className="inforbox" type="text" name="C_name" id="C_name" placeholder="Enter Your Name" required/><br/>
-
-    <label htmlFor="C_email">Email</label><br/>
-    <input className="inforbox" type="email" name="C_email" id="C_email" placeholder="Enter Your Email" required/><br/>
-
-    <label htmlFor="C_message">Message</label><br/>
-    <textarea name="C_message" id="C_message" cols="30" rows="10" placeholder="Enter your Comment" required></textarea><br/>
-
-    <input className="submitbutton" type="submit" value="Send message >"/><br/>
-</form>
-
+const SectionSkills = () => (
+    <Parallax className='Section-Skills' strength={300}>
+        <div className='section-content' id='Skills'>
+            <h1 className='section-title'>Skills</h1>
+            
+            <div className='skills-container'>
+                <div className='skill-category'>
+                    <h3>Programming Languages</h3>
+                    <div className='skill-items'>
+                        <div className='skill-item'>
+                            <span className='skill-name'>Python</span>
+                            <div className='skill-bar'>
+                                <div className='skill-progress' style={{width: '85%'}}></div>
+                            </div>
+                        </div>
+                        <div className='skill-item'>
+                            <span className='skill-name'>JavaScript / React</span>
+                            <div className='skill-bar'>
+                                <div className='skill-progress' style={{width: '75%'}}></div>
+                            </div>
+                        </div>
+                        <div className='skill-item'>
+                            <span className='skill-name'>C++ / C#</span>
+                            <div className='skill-bar'>
+                                <div className='skill-progress' style={{width: '70%'}}></div>
+                            </div>
+                        </div>
+                        <div className='skill-item'>
+                            <span className='skill-name'>Java</span>
+                            <div className='skill-bar'>
+                                <div className='skill-progress' style={{width: '60%'}}></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className='skill-category'>
+                    <h3>Security Tools</h3>
+                    <div className='skill-tags'>
+                        <span className='tag'>Burp Suite</span>
+                        <span className='tag'>Wireshark</span>
+                        <span className='tag'>Nmap</span>
+                        <span className='tag'>Metasploit</span>
+                        <span className='tag'>John the Ripper</span>
+                    </div>
+                </div>
+                
+                <div className='skill-category'>
+                    <h3>Other Skills</h3>
+                    <div className='skill-tags'>
+                        <span className='tag'>AI Operation</span>
+                        <span className='tag'>Android Studio</span>
+                        <span className='tag'>Git</span>
+                        <span className='tag'>Linux</span>
+                        <span className='tag'>Network Security</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div className='cv-download'>
+                <a href="/CV(POLYU_JOB).pdf" download>
+                    <button className='download-btn'>Download CV</button>
+                </a>
+            </div>
         </div>
-
-
-
-
-
-       </div>
-
     </Parallax>
 );
 
-
-export default sessionTwo
+export default SectionSkills

@@ -1,55 +1,58 @@
 import { Parallax } from 'react-parallax';
+// 1. 引入圖片 (請確認檔名大小寫與實際檔案完全一致)
+import HKCCLogo from '../assets/HKCC_logo.png';
+import PolyULogo from '../assets/PolyU_logo.jpeg';
 
-
-const sessionTwo = () => (
-    <Parallax className='Section3' strength={800}>
-       <div className='S3_content' id='Resume'>
-            {/* <div className='resumeblock'>
-                <h1>Resume</h1>
-                <p>wdadawdwadawdawdadawdawdadawdwadawdawdadawda</p>
-                <p>wdadawdwadawdawdadawdawdadawdwadawdawdadawda</p>
-                <p>wdadawdwadawdawdadawdawdadawdwadawdawdadawda</p>
-                <p>wdadawdwadawdawdadawdawdadawdwadawdawdadawda</p>
-                <p>wdadawdwadawdawdadawdawdadawdwadawdawdadawda</p>
-                <p>wdadawdwadawdawdadawda</p>
-
-            </div> */}
-
-            <div className='edu_exp_block'>
-                <h2>Education</h2>
-                <p id='school'>HKCC HONG KONG COMMUNITY COLLEGE</p>
-                <p id='descr'>ASSOCIATE IN INFORMATION TECHNOLOGY(2024)</p>
-
-                <p id='school'>The Hong Kong Polytechnic University</p>
-                <p id='descr'>BSc (HONS) INFORMATION SECURITY(2024-2027)</p>
-
-
-                <h2 className='Small_block'>Experience</h2>
-                <p id='school'>Hong Kong Government</p>
-                <p id='descr'>Placement Student(July, 2025)</p>
-
-            </div>
+const SectionEducation = () => (
+    <Parallax className='Section-Education' strength={300}>
+        <div className='section-content' id='Education'>
+            <h1 className='section-title'>Education</h1>
             
-            <div className='skill_download_block'>
-                <h2>Skill</h2>
-                    <ul>
-                        <li>AI Operation</li>
-                        <li>Basic JAVA</li>
-                        <li>C++/C# Programming</li>
-                        <li>Teamwork</li>
-                        <li>Basic network security knowledge</li>
-                        <li>Android Studio development</li>
-                        <li>Basic React</li>
-                    </ul>
+            <div className='timeline'>
+                <div className='timeline-item'>
+                    <div className='timeline-date'>2024 - 2027</div>
+                    <div className='timeline-content'>
+                        {/* 2. 新增一個 header 包裹文字與 Logo */}
+                        <div className='timeline-header'>
+                            <div className='timeline-text'>
+                                <h3>The Hong Kong Polytechnic University</h3>
+                                <p className='degree'>BSc (Hons) Information Security</p>
+                            </div>
+                            <div className='timeline-logo'>
+                                <img src={PolyULogo} alt="PolyU Logo" />
+                            </div>
+                        </div>
+                        
+                        <ul className='highlights'>
+                            <li>Focus: cybersecurity and penetration testing</li>
+                            <li>Key courses: cryptography, network security, system security</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div className='timeline-item'>
+                    <div className='timeline-date'>2022 - 2024</div>
+                    <div className='timeline-content'>
+                        {/* 2. 同樣應用於第二個項目 */}
+                        <div className='timeline-header'>
+                            <div className='timeline-text'>
+                                <h3>HKCC Hong Kong Community College</h3>
+                                <p className='degree'>Associate in Information Technology</p>
+                            </div>
+                            <div className='timeline-logo'>
+                                <img src={HKCCLogo} alt="HKCC Logo" />
+                            </div>
+                        </div>
 
-                <a href="/src/CV(POLYU_JOB).pdf" download><button className='Small_block'><h2>Download CV</h2></button></a>
+                        <ul className='highlights'>
+                            <li>GPA: 3.52</li>
+                            <li>Key courses: programming, databases, network fundamentals</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-
-       </div>
-
+        </div>
     </Parallax>
 );
 
-
-export default sessionTwo
+export default SectionEducation;

@@ -1,85 +1,53 @@
-import { useState } from 'react';
 import { Parallax } from 'react-parallax';
-import WeatherImg from '../assets/Weather_project.png';
-import SecurityImg from '../assets/SecurityPHP.png';
-import AC_project from '../assets/AC_project.png';
+// 1. 引入 SVG Logo
+import HKGovLogo from '../assets/HKGOV.svg';
 
-// Example project data
-const projects = [
-  {
-    img: WeatherImg,
-    title: 'Weather Report Website',
-    desc: [
-    //   "Weather Report Website's data is from OpenWeatherAPI.",
-    //   "The Website is fully designed by Javascript."
-    ],
-    link: '#'
-  },
-  {
-    img: SecurityImg,
-    title: 'Security PHP Project',
-    desc: [
-    //   "Security PHP Project was showing the skill of preventing:",
-    //   "XSS Attacking, Cookies Security and SQL injection."
-    ],
-    link: '#'
-  },
-  {
-    img: AC_project,
-    title: 'Accounting Application',
-    desc: [
-    //   "AC Project was showing the skill of preventing:",
-    //   "XSS Attacking, Cookies Security and SQL injection."
-    ],
-    link: '#'
-  },
-//   {
-//     img: AC_project,
-//     title: 'ccc Application',
-//     desc: [
-//     //   "AC Project was showing the skill of preventing:",
-//     //   "XSS Attacking, Cookies Security and SQL injection."
-//     ],
-//     link: '#'
-//   },
-];
+const SectionExperience = () => (
+    <Parallax className='Section-Experience' strength={300}>
+        <div className='section-content' id='Experience'>
+            <h1 className='section-title'>Experience</h1>
+            
+            <div className='timeline'>
+                <div className='timeline-item'>
+                    <div className='timeline-date'>July 2025</div>
+                    <div className='timeline-content'>
+                        
+                        {/* 2. 使用 timeline-header 包裹文字與 Logo，共用之前的 CSS */}
+                        <div className='timeline-header'>
+                            <div className='timeline-text'>
+                                <h3>Hong Kong Government</h3>
+                                <p className='position'>Placement Student</p>
+                            </div>
+                            <div className='timeline-logo'>
+                                <img src={HKGovLogo} alt="Hong Kong Government Logo" />
+                            </div>
+                        </div>
 
-const sessionTwo = () => {
-  const [current, setCurrent] = useState(0);
+                        <ul className='responsibilities'>
+                            <li>Contributed to government security initiatives</li>
+                            <li>Assisted in system vulnerability assessments</li>
+                            <li>Learned enterprise-grade security practices</li>
+                        </ul>
+                    </div>
+                </div>
 
-  const prevProject = () => setCurrent((current - 1 + projects.length) % projects.length);
-  const nextProject = () => setCurrent((current + 1) % projects.length);
-
-  // Get indices for left, center, right
-  const left = (current - 1 + projects.length) % projects.length;
-  const right = (current + 1) % projects.length;
-
-  return (
-    <Parallax className='Section4' strength={800}>
-      <h1 className='S4_title'>Project Experience</h1>
-      <div className='S4_content' id='ProjectExp'>
-        <button className="S4_arrow left" onClick={prevProject}>&lt;</button>
-        <div className="S4_carousel">
-          {[left, current, right].map((idx, i) => (
-            <a
-              key={idx}
-              href={projects[idx].link}
-              className={`S4_project-container${i === 1 ? ' active' : ''}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img className='S4_projectIntro' src={projects[idx].img} alt={projects[idx].title} />
-              <p className='projecttitle'>{projects[idx].title}</p>
-              {projects[idx].desc.map((d, j) => (
-                <p className='projectDes' key={j}>{d}</p>
-              ))}
-            </a>
-          ))}
+                <div className='timeline-item'>
+                    <div className='timeline-date'>2023 - 2024</div>
+                    <div className='timeline-content'>
+                        
+                        {/* 如果其他經歷沒有 Logo，可以只保留標題結構，或不加 Logo div */}
+                        <h3>Other Experience</h3>
+                        <p className='position'>Role Title</p>
+                        
+                        <ul className='responsibilities'>
+                            <li>Responsibility description 1</li>
+                            <li>Responsibility description 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button className="S4_arrow right" onClick={nextProject}>&gt;</button>
-      </div>
     </Parallax>
-  );
-};
+);
 
-export default sessionTwo
+export default SectionExperience;

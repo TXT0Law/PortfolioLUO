@@ -3,8 +3,8 @@ import Icon from '../assets/myicon.jpg';
 
 
 const sessionTwo = () => (
-    <Parallax className='Section2' strength={800}>
-       <div className='S2_content' id='aboutme'>
+     <Parallax className='Section2' strength={800}>
+         <div className='S2_content' id='AboutMe'>
             <img src={Icon} className='iconsty'></img>
             
             <p>
