@@ -60,7 +60,7 @@ const SectionSkills = () => (
             </div>
             
             <div className='cv-download'>
-                <a href="/CV(POLYU_JOB).pdf" download>
+                <a href="../assets/CV.pdf" download>
                     <button className='download-btn'>Download CV</button>
                 </a>
             </div>

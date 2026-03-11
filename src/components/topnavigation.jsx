@@ -1,16 +1,46 @@
+import { Link, useLocation } from 'react-router-dom';
 
 function TopNavigation() {
+    const location = useLocation();
+    const isOnPortfolio = location.pathname === '/';
+
+    const navItems = [
+        { id: 'home', label: 'LUO', isTitle: true },
+        { id: 'AboutMe', label: 'About' },
+        { id: 'Education', label: 'Education' },
+        { id: 'Experience', label: 'Experience' },
+        { id: 'Skills', label: 'Skills' },
+        { id: 'ProjectExp', label: 'Projects' },
+        { id: 'CTF', label: 'Blogs' },
+        { id: 'Competitions', label: 'Competitions' },
+        { id: 'Contact', label: 'Contact' },
+    ];
+
+    const handleNavClick = (e, sectionId) => {
+        if (isOnPortfolio) {
+            e.preventDefault();
+            const el = sectionId === 'home' ? document.getElementById('home') : document.getElementById(sectionId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <ul className="navigationbar">
-            <li className="Nav_T">LUO</li>
-            <li className="Nav_B"><a href="#Contact">Contact</a></li>
-            <li className="Nav_B"><a href="#Competitions">Competitions</a></li>
-            <li className="Nav_B"><a href="#CTF">CTF</a></li>
-            <li className="Nav_B"><a href="#ProjectExp">Projects</a></li>
-            <li className="Nav_B"><a href="#Skills">Skills</a></li>
-            <li className="Nav_B"><a href="#Experience">Experience</a></li>
-            <li className="Nav_B"><a href="#Education">Education</a></li>
-            <li className="Nav_B"><a href="#AboutMe">About</a></li>
+            {navItems.map((item) => (
+                item.isTitle ? (
+                    <li key={item.id} className="Nav_T">
+                        <Link to="/" state={{ scrollTo: item.id }} onClick={(e) => handleNavClick(e, item.id)}>
+                            {item.label}
+                        </Link>
+                    </li>
+                ) : (
+                    <li key={item.id} className="Nav_B">
+                        <Link to="/" state={{ scrollTo: item.id }} onClick={(e) => handleNavClick(e, item.id)}>
+                            {item.label}
+                        </Link>
+                    </li>
+                )
+            ))}
         </ul>
     );
 }

@@ -213,10 +213,10 @@ html{
     word-wrap: break-word; 
     overflow-wrap: break-word;
     
-    /* 新增這行：設定正常的行高 (1.2 ~ 1.5 倍) */
+    /* Set normal line-height (1.2 ~ 1.5) */
     line-height: 1.2; 
     
-    /* 建議：加入一點上下邊距，讓排版不那麼擁擠 */
+    /* Add vertical padding for less crowded layout */
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -422,38 +422,62 @@ html{
     top: 0;
     width: 100%;
     height: 10%;
+    min-height: 60px;
+    z-index: 1000;
+    display: flex;
+    align-items: stretch;
+    border-radius: 0 0 0px 0px;
 }
 
 .navigationbar .Nav_B{
-    float: right;
-}                     
+    display: flex;
+    align-items: stretch;
+}
+.navigationbar .Nav_B:first-of-type{
+    margin-left: auto;
+}
 
 .navigationbar .Nav_B a{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: black;
     font-size: 110%;
-    text-align: center;
-    padding: 23px 20px;
-
+    padding: 0 20px;
+    height: 100%;
     text-decoration: none;
+    border-radius: 12px;
+    margin: 6px 4px;
 }
 
 .navigationbar .Nav_B a:hover:not(.active){
     background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .navigationbar .Nav_T{
-    display: block;
+    display: flex;
+    align-items: center;
     font-size: 200%;
-    text-align: center;
-    padding: 15px 20px;
-    float: left;
+    padding: 0 20px;
+}
+.navigationbar .Nav_T a{
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    padding: 0 10px;
+    height: 100%;
+    border-radius: 12px;
+}
+.navigationbar .Nav_T a:hover{
+    background-color: rgba(0,0,0,0.05);
 }
 
 
 
 
-/* ===== 通用 Section 樣式 ===== */
+/* ===== Common Section styles ===== */
 .section-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -467,7 +491,7 @@ html{
     color: #333;
 }
 
-/* ===== Timeline 樣式 (Education & Experience) ===== */
+/* ===== Timeline styles (Education & Experience) ===== */
 .Section-Education,
 .Section-Experience {
     min-height: 100vh;
@@ -562,7 +586,7 @@ html{
     opacity: 0.9;
 }
 
-/* ===== Skills 樣式 ===== */
+/* ===== Skills styles ===== */
 .Section-Skills {
     min-height: 100vh;
     background: rgb(254, 223, 212);
@@ -650,7 +674,7 @@ html{
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== CTF Writeups 樣式 ===== */
+/* ===== CTF Writeups styles ===== */
 .Section-CTF {
     min-height: 100vh;
     background: rgb(83, 129, 255);
@@ -660,6 +684,111 @@ html{
 .Section-CTF .section-title {
     color: white;
     margin-bottom: 40px;
+}
+
+.subsection-block {
+    margin-bottom: 50px;
+}
+.subsection-block:last-child {
+    margin-bottom: 0;
+}
+
+.subsection-title {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.blog-card .blog-excerpt {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 10px 0 15px 0;
+    flex: 1;
+}
+
+.blogs-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    grid-column: 1 / -1;
+    padding: 40px;
+    text-align: center;
+}
+
+.blogs-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.pagination-btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.pagination-btn:hover:not(:disabled) {
+    background: white;
+    color: rgb(83, 129, 255);
+}
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    color: white;
+    font-size: 1rem;
+}
+
+.writeup-link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+.writeup-link-card:hover {
+    background: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+.writeup-link-card .writeup-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+.writeup-link-card h3 {
+    color: #333;
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+}
+.writeup-link-card p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.95rem;
+    margin: 0 0 15px 0;
+}
+.writeup-link-card .writeup-arrow {
+    color: rgb(83, 129, 255);
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .ctf-filters {
@@ -701,9 +830,9 @@ html{
     transition: all 0.3s ease;
     color: black;
     display: flex;
-    flex-direction: column; /* 讓內容垂直排列 */
+    flex-direction: column; /* Stack content vertically */
     justify-content: space-between;
-    min-height: 140px; /* 設定最小高度，讓卡片整齊 */
+    min-height: 140px; /* Set min-height for consistent card layout */
     position: relative;
     border: 1px solid transparent;
 }
@@ -771,18 +900,18 @@ html{
     font-size: 0.95rem;
     font-weight: bold;
     margin: 0;
-    margin-top: auto; /* 將此行推到卡片最底部 */
-    text-align: right; /* 靠右對齊 */
+    margin-top: auto; /* Push this row to card bottom */
+    text-align: right; /* Align right */
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 5px;
-    transition: gap 0.3s; /* 增加過渡效果 */
+    transition: gap 0.3s; /* Add transition effect */
 }
 .ctf-card.simple-mode:hover .view-writeup {
-    gap: 10px; /* 讓文字和箭頭稍微拉開距離，產生動態感 */
+    gap: 10px; /* Add gap between text and arrow for visual emphasis */
 }
-/* ===== Competitions 樣式 ===== */
+/* ===== Competitions styles ===== */
 .Section-Competitions {
     min-height: 100vh;
     background: rgb(254, 223, 212);
@@ -810,7 +939,40 @@ html{
 
 .comp-icon {
     font-size: 3rem;
+}
+.comp-cert {
     margin-bottom: 15px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.comp-cert img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+.comp-cert .cert-pdf-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 20px;
+    border: 2px dashed rgba(255,107,107,0.4);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+.comp-cert .cert-pdf-link:hover {
+    background: rgba(255,107,107,0.08);
+    border-color: #ff6b6b;
+}
+.cert-pdf-icon {
+    font-size: 2.5rem;
 }
 
 .comp-year {
@@ -834,7 +996,88 @@ html{
     font-size: 0.9rem;
 }
 
-/* ===== 響應式設計 ===== */
+/* ===== Blog Post Page styles ===== */
+.blog-post-page {
+    min-height: 100vh;
+    background: rgb(83, 129, 255);
+    padding: 180px 20px 80px;
+}
+.blog-post-container {
+    max-width: 720px;
+    margin: 0 auto;
+    margin-top: 24px;
+    background: white;
+    border-radius: 16px;
+    padding: 48px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+.blog-post-back {
+    display: inline-block;
+    color: rgb(83, 129, 255);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 24px;
+    transition: opacity 0.2s;
+}
+.blog-post-back:hover {
+    opacity: 0.8;
+}
+.blog-post-header {
+    margin-bottom: 32px;
+}
+.blog-post-date {
+    display: inline-block;
+    background: rgb(83, 129, 255);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+.blog-post-title {
+    color: #333;
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1.3;
+}
+.blog-post-content {
+    color: #444;
+    line-height: 1.8;
+}
+.blog-post-content p {
+    margin: 0 0 16px 0;
+}
+
+.blog-post-image {
+    margin: 24px 0;
+}
+.blog-post-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.blog-post-image--small img { max-width: 280px; }
+.blog-post-image--medium img { max-width: 480px; }
+.blog-post-image--large img { max-width: 720px; }
+.blog-post-image figcaption {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #666;
+}
+.blog-post-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.blog-post-not-found a {
+    color: white;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+/* ===== Responsive design ===== */
 @media (max-width: 768px) {
     .section-content {
         padding: 60px 20px;
@@ -861,6 +1104,13 @@ html{
     
     .timeline-content h3 {
         font-size: 1.2rem; 
+    }
+
+    .blog-post-container {
+        padding: 24px;
+    }
+    .blog-post-title {
+        font-size: 1.5rem;
     }
 }
 

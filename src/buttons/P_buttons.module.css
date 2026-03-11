@@ -1,5 +1,6 @@
 
 .p_buttons{
+    display: block;
     border-top: 2px solid white;
     border-bottom: 2px solid white;
     border-left: 0px;
@@ -11,6 +12,7 @@
     text-align: left;
     background-color: rgba(255, 255, 255, 0);
     color: white;
+    text-decoration: none;
 
 }
 
