@@ -3,6 +3,7 @@ import { Parallax } from 'react-parallax';
 import WeatherImg from '../assets/Weather_project.png';
 import SecurityImg from '../assets/SecurityPHP.png';
 import AC_project from '../assets/AC_project.png';
+import ObriCheckImg from '../assets/ObriCheck.png';
 
 const projects = [
   {
@@ -22,6 +23,12 @@ const projects = [
     title: 'Accounting Application',
     desc: [],
     link: '#'
+  },
+  {
+    img: ObriCheckImg,
+    title: 'ObriCheck',
+    desc: [],
+    link: 'https://github.com/TXT0Law/OrbiCheck'
   },
 ];
 

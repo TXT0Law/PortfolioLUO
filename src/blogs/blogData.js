@@ -15,6 +15,7 @@
  */
 
 import myIcon from '../assets/myicon.jpg';
+import ObriCheckImg from '../assets/ObriCheck.png';
 
 export const blogPosts = [
     {
@@ -32,10 +33,29 @@ I will continue to update with more information and insights. Feel free to reach
     },
     {
         id: '2',
-        title: 'Thinking',
+        title: 'Building OrbiCheck — An OSINT Web Security Platform',
         date: 'Mar 2026',
-        excerpt: 'ThinkingThinkingThinkingThinking',
-        content: `ThinkingThinkingThinkingThinking`
+        excerpt: 'A deep dive into how I built OrbiCheck, a full-stack website security assessment platform with 30+ automated reconnaissance modules.',
+        content: `OrbiCheck is an external-perspective website security assessment platform I developed from the ground up. Give it a URL, and it returns a comprehensive reconnaissance report covering IP, DNS, SSL/TLS, HTTP headers, tech stack, threat intelligence, and 30+ more modules — all from an outsider's point of view. The project is open-source and available on GitHub: https://github.com/TXT0Law/OrbiCheck
+
+The idea came from a simple question: how much can you learn about a website without ever logging in? During my studies in cybersecurity, I noticed that most security tools were either too fragmented (one tool per check) or too expensive for individual use. I wanted a single platform that could run a full OSINT sweep with one click and present the results in a clean, actionable dashboard.
+
+The architecture follows a three-service design. The frontend is built with Next.js 14 (App Router), React 18, and TypeScript, styled with Tailwind CSS and shadcn/ui components. The backend API is powered by Python FastAPI with SQLAlchemy (async) and Pydantic for data validation, backed by PostgreSQL for persistence and Redis for caching and task brokering. The third piece is a dedicated Node.js Scan Service running Express, which wraps all 30+ OSINT modules and is called exclusively by the backend via HTTP.
+
+One of the biggest technical challenges was handling real-time scan progress. Each scan triggers dozens of independent modules — IP geolocation, DNS records, WHOIS lookup, certificate chain analysis, WAF detection, tech stack fingerprinting, and more. I implemented Server-Sent Events (SSE) so the frontend receives live updates as each module completes, giving users immediate visual feedback through a module grid with progress indicators.
+
+The scan modules are organized into six categories: Network (IP, DNS, WHOIS, traceroute, open ports), SSL/TLS (certificate chains, cipher suites, protocol versions), Security (HTTP headers, HSTS, DNSSEC, WAF detection, security.txt), Content (cookies, robots.txt, sitemap, linked pages), Threat Intel (malware/phishing detection, blocklist lookups), and Site Profile (tech stack via Wappalyzer, social tags, quality metrics, screenshots). Each module runs independently and reports results back to the backend, which aggregates them into an automated risk analysis with severity scoring.
+
+Beyond one-off scans, I built a Continuous Monitoring system using Celery workers. Users can track uptime, content changes, SSL certificate expiry, and even visual diffs over time. The alerting system supports configurable thresholds and delivery channels, sending notifications when something changes or breaks.
+
+Testing was a priority from day one. The project uses Vitest for frontend unit tests, pytest for backend unit/integration/e2e tests, Jest for the scan service modules, and Playwright for end-to-end browser testing across the full stack. CI runs all test suites through GitHub Actions on every push.
+
+Building OrbiCheck taught me a great deal about full-stack architecture at scale — managing async Python services, orchestrating dozens of concurrent network probes, designing real-time streaming APIs, and building a polished UI that makes complex security data accessible. It reinforced my belief that security tools should be open, transparent, and easy to use.
+
+If you are interested, feel free to check out the source code and try it out. Contributions and feedback are always welcome.`,
+        images: [
+            { src: ObriCheckImg, alt: 'OrbiCheck Dashboard', size: 'large' }
+        ]
     },
 ];
 
